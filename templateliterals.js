@@ -1,7 +1,25 @@
-//³ýÁË'ºÍ"µÄÁíÒ»ÖÖ°üÎ§×Ö·û´®µÄ·½·¨
-var text = `I'm "amazed" that we have so many quotation marks to choose from!`
+//é™¤äº†'å’Œ"çš„å¦ä¸€ç§åŒ…å›´å­—ç¬¦ä¸²çš„æ–¹æ³•
+var text = `I'm "amazed" that we have so many quotation marks to choose from!`;
 
-//½«$ÖÐµÄjs´úÂë½øÐÐÖ´ÐÐ²¢·µ»ØÖµ
-var today = new Date()
-var text = `the time and date is ${today.toLocaleString()}`
-console.log(text)
+//å°†$ä¸­çš„jsä»£ç è¿›è¡Œæ‰§è¡Œå¹¶è¿”å›žå€¼
+var today = new Date();
+var text = `the time and date is ${today.toLocaleString()}`;
+console.log(text);
+
+//å¤šè¡Œå­—ç¬¦ä¸²
+var text = `foo
+bar
+baz`;
+console.log(text);
+
+//Tagged Templates å¯ä»¥ç»™å‚æ•°å¢žåŠ å‡½æ•°å˜æ¢ï¼Œæ¯”å¦‚è®©æ‰€æœ‰ä¼ å…¥çš„å‚æ•°å˜æˆå¤§å†™
+function upperExpr  (template, ...expressions) {
+    return template.slice(1).reduce((accumulator, part, i) => {
+        return accumulator + expressions[i].toUpperCase() + part
+    }, template[0])
+}
+var name = 'nico';
+var outfit = 'leather jacket';
+var text = upperExpr`hello ${name}, you look lovely today in that ${outfit}`;
+console.log(text);
+// <- 'hello NICO, you look lovely today in that LEATHER JACKET'
